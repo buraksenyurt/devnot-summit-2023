@@ -1,0 +1,26 @@
+[package]
+name = "tiny-board-api"
+version = "0.1.0"
+edition = "2021"
+description = "Rust, VueJs, Actix ve Electron ile geliştirilmiş basit bir todo uygulaması."
+
+[dependencies]
+actix-cors = "0.6.4"
+actix-web = "4.3.1"
+async-std = { version = "1.12.0", features = ["attributes", "tokio1"] }
+dotenv = "0.15.0"
+env_logger = "0.10.0"
+futures = "0.3.28"
+log = "0.4.18"
+sea-orm = { version = "0.11.3", features = ["sqlx-postgres", "runtime-actix-native-tls", "macros"] }
+serde = { version = "1.0.164", features = ["derive"] }
+serde_json = "1.0.96"
+tracing-subscriber = { version = "0.3.17", features = ["env-filter"] }
+migration = { path = "migration" }
+
+[dependencies.sea-orm-migration]
+version = "^0"
+features = [
+    "runtime-actix-native-tls",
+    "sqlx-postgres"
+]

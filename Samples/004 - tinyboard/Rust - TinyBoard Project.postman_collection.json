@@ -1,0 +1,136 @@
+{
+	"info": {
+		"_postman_id": "28a88708-fd0e-45b3-afb9-968ce0916719",
+		"name": "Rust - TinyBoard Project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1401662"
+	},
+	"item": [
+		{
+			"name": "Create New Work Item",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Fatura kesme fonksiyonu iyileştirmesi\",\n    \"summary\": \"Fonksiyonun güncel cognitive complexity değeri 670. Switch blokları çok fazla.\",\n    \"business_value\": 500,\n    \"completed\": false\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:7000/workitems",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "7000",
+					"path": [
+						"workitems"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Work Item",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Rust X 5\",\n    \"summary\": \"5 Pomodore'luk Rust çalışması\",\n    \"business_value\": 250,\n    \"completed\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:7000/workitems/4",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "7000",
+					"path": [
+						"workitems",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Work Items",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "127.0.0.1:7000/workitems",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "7000",
+					"path": [
+						"workitems"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Work Items by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "127.0.0.1:7000/workitems/4",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "7000",
+					"path": [
+						"workitems",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Work Item by ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "127.0.0.1:7000/workitems/3",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "7000",
+					"path": [
+						"workitems",
+						"3"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
