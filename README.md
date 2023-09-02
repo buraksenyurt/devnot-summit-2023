@@ -7,3 +7,6 @@ DevNot Summit 2023 etkinliğindeki Programcıdan Programcıya Rust konulu sunuma
 - **[x] 003 - gaming :** Rust ekosistemi oyun geliştirme üzerine çok zengin kütüphaneler içerir. Bunlar arasında en popüler olanlarından birisi de ECS (Entity Component System) kullanan Bevy'dir. Bevy ile yazdığım örnek bir oyun gösterilir.
 - **[x] 004 - desktop app :** Rust eko sistemini kullanarak cross platform masaüstü uygulamalar da geliştirilebilir. tiny-board isimli örnekte basit bir kişisel kanban board uygulaması ele alınıyor.
 - **[x] 005 - reverse proxy :** Bir sistem programlama dili olarak Rust çok güçlü özelliklere sahiptir. Onunla örneğin ilkel bir Reverse Proxy Server basitçe yazılabilir.
+- **[x] 006 - some cookies :** Bazı kaydadeğer kod örneklerini içerir.
+- **[x] 007 - testing :** İçinde mockito'nun da kullanıldığı mock'lama da yapılan ileri seviye bir örnektir.
+- **[x] 008 - http server :** Detaylı bir http server örneği içerir. Asenkron thread yapıları, modüler struct kullanımları, pattern matchin kullanımları dikkat çekicidir.
