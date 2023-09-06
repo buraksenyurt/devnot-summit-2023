@@ -26,4 +26,5 @@ members = [
     ,"009 - tiny service/norris-api"
     ,"010 - macro sample/macro_sample"
     ,"011 - be functional/sample"
+    ,"012 - strong type system/rust_sample"
 ]

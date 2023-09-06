@@ -14,3 +14,4 @@ DevNot Summit 2023 etkinliğindeki Programcıdan Programcıya Rust konulu sunuma
 - **[x] 009 - tiny-service:** Basit bir REST Api servisi. axum, tokio, rand gibi crate'ler ile bir REST servis yazmayı öğrenmek için basit ve anlaşılır bir uygulama.
 - **[x] 010 - macro sample:** Struct oluşturulurken kullanılabilecek basit bir macro örneği.
 - **[x] 011 - be functional:** Iterator traitinin sağladığı birkaç higher order function kullanımına ait örnek kod parçasını içerir.
+- **[x] 012 - strong type system:** Rust sadece yüksek performanslı çözümler ve bellek güvenliği için tercih edilmez. Güçlü bir tip sistemi de vardır. Bu klasörde C# ve Rust ile yazılmış iki örnek yer alıyor ve bir User tipinin her iki tarafta nasıl ele alındığı, bir takım olası hataların nasıl önüne geçildiği irdelenmeye çalışılıyor.
