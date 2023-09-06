@@ -2,6 +2,7 @@
 
 DevNot Summit 2023 etkinliğindeki Programcıdan Programcıya Rust konulu sunuma ait örnek kodları içerir.
 
+- **[x] 000 - hello-world:** Seminerde süreye bağlı olarak farklı hello-world versiyonları kullanabilirim. Bu versiyonları içeren proje klasörüdür.
 - **[x] 001 - rust_vs_cplusplus :** C++ tarafında sık yapılan bazı hataların Rust tarafında nasıl önlendiği ele alınır.
 - **[x] 002 - oop :** Rust'ın nesne yönelimli bazı dil özelliklerini göstermek için bir örnek. Type State Builder Pattern'i konu alır.
 - **[x] 003 - gaming :** Rust ekosistemi oyun geliştirme üzerine çok zengin kütüphaneler içerir. Bunlar arasında en popüler olanlarından birisi de ECS (Entity Component System) kullanan Bevy'dir. Bevy ile yazdığım örnek bir oyun gösterilir.
