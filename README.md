@@ -11,3 +11,5 @@ DevNot Summit 2023 etkinliğindeki Programcıdan Programcıya Rust konulu sunuma
 - **[x] 007 - testing :** İçinde mockito'nun da kullanıldığı mock'lama da yapılan ileri seviye bir örnektir.
 - **[x] 008 - http server :** Detaylı bir http server örneği içerir. Asenkron thread yapıları, modüler struct kullanımları, pattern matchin kullanımları dikkat çekicidir.
 - **[x] 009 - tiny-service:** Basit bir REST Api servisi. axum, tokio, rand gibi crate'ler ile bir REST servis yazmayı öğrenmek için basit ve anlaşılır bir uygulama.
+- **[x] 010 - macro sample:** Struct oluşturulurken kullanılabilecek basit bir macro örneği.
+- **[x] 011 - be functional:** Iterator traitinin sağladığı birkaç higher order function kullanımına ait örnek kod parçasını içerir.
