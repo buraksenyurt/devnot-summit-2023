@@ -51,8 +51,8 @@ fn load_facts() -> Option<Vec<Fact>> {
 }
 
 fn read_lines<P>(file_name: P) -> io::Result<io::Lines<io::BufReader<File>>>
-    where
-        P: AsRef<Path>,
+where
+    P: AsRef<Path>,
 {
     let file = File::open(file_name)?;
     Ok(io::BufReader::new(file).lines())

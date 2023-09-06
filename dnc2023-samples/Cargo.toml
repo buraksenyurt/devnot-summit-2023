@@ -1,0 +1,29 @@
+[package]
+name = "dnc2023-samples"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+
+[workspace]
+members = [
+    "000 - hello-world/version_1"
+    ,"000 - hello-world/version_2"
+    ,"001 - rust_vs_cplusplus/case_01"
+    ,"001 - rust_vs_cplusplus/case_02"
+    ,"001 - rust_vs_cplusplus/case_03"
+    ,"001 - rust_vs_cplusplus/case_04"
+    ,"002 - oop/type_state_builder"
+    ,"003 - gaming/on-my-way"
+    ,"004 - tinyboard/tiny-board-api"
+    ,"005 - reverse proxy"
+    ,"006 - some cookies/cannot_borrow"
+    ,"006 - some cookies/excp_mut_ref"
+    ,"006 - some cookies/move_with_ref"
+    ,"006 - some cookies/mrsw"
+    ,"007 - testing/mocking"
+    ,"008 - http server/crayz_server"
+    ,"009 - tiny service/norris-api"
+    ,"010 - macro sample/macro_sample"
+    ,"011 - be functional/sample"
+]

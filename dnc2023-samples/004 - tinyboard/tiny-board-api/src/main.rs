@@ -5,6 +5,7 @@ mod handler;
 mod repository;
 mod test;
 use actix_cors::Cors;
+use actix_web::http::header;
 use actix_web::{
     middleware,
     web::{self, Data},
@@ -12,7 +13,6 @@ use actix_web::{
 };
 use sea_orm::Database;
 use std::env;
-use actix_web::http::header;
 
 #[derive(Debug, Clone)]
 pub struct AppState {
@@ -38,7 +38,7 @@ async fn main() -> std::io::Result<()> {
         let cors = Cors::default()
             .allowed_origin("http://localhost:5173")
             .allowed_origin("http://localhost:5173/")
-            .allowed_methods(vec!["GET", "POST","PUT","DELETE"])
+            .allowed_methods(vec!["GET", "POST", "PUT", "DELETE"])
             .allowed_headers(vec![
                 header::CONTENT_TYPE,
                 header::AUTHORIZATION,

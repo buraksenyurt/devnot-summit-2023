@@ -112,10 +112,7 @@ pub fn animate_explosion_sprites(
     }
 }
 
-pub fn despawn_explosions(
-    mut commands: Commands,
-    query: Query<(Entity, &ExplosionAnimation)>,
-) {
+pub fn despawn_explosions(mut commands: Commands, query: Query<(Entity, &ExplosionAnimation)>) {
     for (entity, component) in query.iter() {
         if component.disposable {
             commands.entity(entity).despawn();
