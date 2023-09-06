@@ -15,7 +15,7 @@ fn main() -> Result<()> {
         .background("middle_earth_big.jpg")
         .window(1024., 768.)
         .build()?;
-    println!("{mordor:#?}");
+    println!("{:#?}",mordor);
 
     Ok(())
 }
@@ -98,7 +98,7 @@ fn main() -> Result<()> {
         //.background("lord_of_the_rings_map_big.jpg")
         .window(1280., 900.)
         .build()?;
-    println!("{gondor:#?}");
+    println!("{:#?}",gondor);
 
     Ok(())
 }

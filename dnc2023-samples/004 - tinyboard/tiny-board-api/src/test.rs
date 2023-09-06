@@ -2,10 +2,9 @@
 mod test {
     use crate::repository::prelude::*;
     use crate::repository::work_items::WorkItemRequest;
-    use actix_web::web;
     use actix_web::web::Json;
     use dotenv::dotenv;
-    use sea_orm::{Database, DatabaseConnection};
+    use sea_orm::Database;
 
     #[async_std::test]
     async fn should_create_new_work_item_and_then_delete_works() {

@@ -2,8 +2,10 @@
 
     Multiple-Reader Single-Writer (MSRW) mevzusu.
 */
+use std::f32::consts::PI;
+
 fn main() {
-    let mut point = 3.1415;
+    let mut point = PI;
     do_something(&mut point, &point);
 }
 

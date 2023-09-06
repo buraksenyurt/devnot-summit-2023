@@ -1,12 +1,14 @@
+use std::f32::consts::PI;
+
 fn main() {
     // 01 - Aşağıda klasik bir referans yoluyla değer atama ve kullanma söz konusu.
-    let point = 3.1415;
+    let point = PI;
     let new_point = calculate_something(&point);
     let other_point = calculate_something(&point);
     println!("{new_point} , {other_point}");
 
     // //#02
-    // let point = 3.1415;
+    // let point = PI;
     // let new_point = calculate_something_v2(&point);
     // let other_point = calculate_something_v2(&point);
     // println!("{new_point} , {other_point}");

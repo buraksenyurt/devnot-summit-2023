@@ -6,7 +6,7 @@ Forward proxy, istemcilerin internete doğru yaptığı talepler için gateway r
 
 Bizim örneğimizde ele alacağımız konu ise Reverse Proxy. Bu sefer backend server'ların kimliği istemciden gizlenir. İstemci talepleri backend server'lara geçirilirken load balancing, caching, compression gibi çeşitli fonksiyonellikler kullanılabilir. Backend server'larda işlenen taleplere ait cevaplarda yine Proxy Server üstünden istemcilere iletilir.
 
-![../images/simple_proxy_01.png](../images/simple_proxy_01.png)
+![simple_proxy_01.png](simple_proxy_01.png)
 
 Senaryo da iki adet program söz konusu olacak. Birisi backend server görevini üstlenirken diğeri reverse proxy server olacak.
 
@@ -24,7 +24,7 @@ cargo run --bin backend
 curl http://localhost:3002/salary/categories/3
 ```
 
-![../images/simple_proxy_02.png](../images/simple_proxy_02.png)
+![simple_proxy_02.png](simple_proxy_02.png)
 
 Proxy sunucusunun kodlarını tamamladıktan sonra ise aşağıdaki şekilde testler yapılabilir.
 
@@ -42,4 +42,4 @@ curl http://localhost:5555/salary/categories/8
 
 Dikkat edileceği üzere talepler localhost:5555 adresine yapılmaktadır. Burası proxy sunucusudur. Proxy sunucusu gelen talepleri backend tarafta yer alan localhost:3002 adresine yönlendirir. Gelen cevapları da istemci tarafına taşır. Aşağıdaki şekilde görüldüğü gibi.
 
-![../images/simple_proxy_03.png](../images/simple_proxy_03.png)
+![simple_proxy_03.png](simple_proxy_03.png)
