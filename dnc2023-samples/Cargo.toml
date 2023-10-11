@@ -9,6 +9,7 @@ edition = "2021"
 members = [
     "000 - hello-world/version_1"
     ,"000 - hello-world/version_2"
+    ,"000 - hello-world/version_3"
     ,"001 - rust_vs_cplusplus/case_01"
     ,"001 - rust_vs_cplusplus/case_02"
     ,"001 - rust_vs_cplusplus/case_03"
