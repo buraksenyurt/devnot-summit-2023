@@ -1,0 +1,36 @@
+services:
+  postgres:
+    image: postgres:17-alpine
+    container_name: tinyboard-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: tiger
+      POSTGRES_DB: tiny-board
+    ports:
+      - "5434:5432"
+    volumes:
+      - tinyboard-pgdata:/var/lib/postgresql/data
+    networks:
+      - tinyboard-net
+
+  pgadmin:
+    image: dpage/pgadmin4:9.14.0
+    container_name: tinyboard-pgadmin
+    restart: unless-stopped
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@example.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"
+    depends_on:
+      - postgres
+    networks:
+      - tinyboard-net
+
+volumes:
+  tinyboard-pgdata:
+
+networks:
+  tinyboard-net:
+    driver: bridge

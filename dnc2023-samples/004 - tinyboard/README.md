@@ -4,16 +4,39 @@ Bu örnekte amacım Rust, Actix, SeaORM ve Electron kullanılarak basit bir todo
 
 ## Database
 
-Örnekte PostgreSQL kullanılmakta. Ben her zamanki gibi docker imajını tercih edeceğim.
+Örnekte PostgreSQL kullanılmakta. Makinede başka PostgreSQL container'larının çalışıyor olabileceği düşünülerek, servisler izole bir Docker ağı *(tinyboard-net)* içinde çalışacak şekilde bir `docker-compose.yml` dosyası oluşturuldu. Dosya; PostgreSQL ve pgAdmin servislerini barındırmaktadır.
+
+### Servisleri Başlatma
+
+Proje kök dizinindeyken aşağıdaki komut ile tüm servisler ayağa kaldırılabilir:
 
 ```bash
-sudo docker run -p 5434:5432 --name tinyboard -e POSTGRES_PASSWORD=tiger -d postgres
+docker compose up -d
 ```
 
-Buna göre uygulamanın veritabanı bağlantısını da tutan .env dosyasında aşağıdaki tanımı kullanmamız yeterli olacak.
+| Servis | Bağlantı | Kullanıcı Adı | Şifre |
+| ----------- | ------------------------------------- | --------------- | -------- |
+| PostgreSQL | `localhost:5434` | postgres | tiger |
+| pgAdmin | [http://localhost:5050](http://localhost:5050) | `admin@example.com` | admin |
+
+Servisleri durdurmak için:
+
+```bash
+docker compose down
+```
+
+Veritabanı verilerini de tamamen silmek için (dikkatli kullanın):
+
+```bash
+docker compose down -v
+```
+
+### .env Dosyası
+
+Uygulamanın veritabanı bağlantısını tutan `.env` dosyasında aşağıdaki tanımı kullanmak yeterli olacak:
 
 ```.env
-DATABASE_URL=postgres://localhost:5434/tiny-board?user=postgres&password=tiger
+DATABASE_URL=postgres://postgres:tiger@localhost:5434/tiny-board
 ```
 
 ## Rust Projesinin Oluşturulması
@@ -45,11 +68,11 @@ cargo add serde -F derive
 cargo add tracing-subscriber -F env-filter
 ```
 
-_**Not:** cargo.toml dosyasına eklenen bazı crate'ler için feature bildirilmleri söz konusu. Bu, ilgili crate'in hangi özelliklerinin aktifleştirileceği anlamına gelir. Yani sadece ihtiyacımız olan özellikleri alıp gereksiz bağımlılıklarının indirilmemesini sağlar._
+> **Not:** cargo.toml dosyasına eklenen bazı crate'ler için feature bildirilmleri söz konusu. Bu, ilgili crate'in hangi özelliklerinin aktifleştirileceği anlamına gelir. Yani sadece ihtiyacımız olan özellikleri alıp gereksiz bağımlılıklarının indirilmemesini sağlar.
 
 ## Migration İşlemleri
 
-Pekçok ORM aracında olduğu gibi (diesel mesela) SeaORM için de migration işlerini kolaylaştıran bir tool var. Önce bunu sisteme yüklüyoruz.
+Pekçok **ORM** aracında olduğu gibi *(diesel mesela)* SeaORM için de migration işlerini kolaylaştıran bir tool var. Önce bunu sisteme yüklüyoruz.
 
 ```bash
 cargo install sea-orm-cli
@@ -103,7 +126,7 @@ Bu komut src/entity klasörü içerisinde work_item isimli veri yapısının olu
 
 Web API tarafı tamamlandıktan sonra CRUD operasyonlarını test edebiliriz. Bunun için Postman veya curl gibi araçlar kullanılabilir. Tabii işlemlere başlamadan önce docker container olarak kullandığımız postgresql örneğinin çalıştığından emin olmalıyız.
 
-**Yeni bir WorkItem eklemek için**
+- Yeni bir WorkItem eklemek için
 
 ```text
 Adres : 127.0.0.1:7000/workitems
@@ -119,7 +142,7 @@ Metot : HTTP Post
 
 ![assets/api_request_01.png](assets/api_request_01.png)
 
-**Tüm WorkItem'ları listelemek için**
+- Tüm WorkItem'ları listelemek için
 
 ```text
 Adres : 127.0.0.1:7000/workitems
@@ -128,7 +151,7 @@ Metot : HTTP Get
 
 ![assets/api_request_02.png](assets/api_request_02.png)
 
-**Belli bir ID bilgisine sahip WorkItem'ı getirmek için**
+- Belli bir ID bilgisine sahip WorkItem'ı getirmek için
 
 ```text
 Adres : 127.0.0.1:7000/workitems/4
@@ -137,7 +160,7 @@ Metot : HTTP Get
 
 ![assets/api_request_03.png](assets/api_request_03.png)
 
-**Bir ID bilgisine sahip WorkItem'ı güncellemek için**
+- Bir ID bilgisine sahip WorkItem'ı güncellemek için
 
 ```text
 Adres : 127.0.0.1:7000/workitems/4
@@ -153,7 +176,7 @@ Metot : HTTP Put
 
 ![assets/api_request_04.png](assets/api_request_04.png)
 
-**Bir WorktItem'ı silmek için**
+- Bir WorktItem'ı silmek için
 
 ```text
 Adres : 127.0.0.1:7000/workitems/3
@@ -194,7 +217,13 @@ npm install axios vue-axios --save
 
 ## Çalışma Zamanı
 
-Örnek uygulama Postgresql veritabanını kullanmakta ve o da docker container olarak servis edilmekte. Dolayısıyla sistemde ilgili container'ın çalışır olduğundan emin olmak lazım. Bunun haricinde backend taraf servisinin de çalışır olması gerekiyor. Sonrasında eğer geliştirme modunda ilerleyeceksek **npm run dev** komutunu kullanabiliriz. Bu komut ile Electron uygulaması çalıştırılacaktır. Ayrıca localhost:5137 adresinden bu electron uygulamasının tarayıcıda çalışan versiyonuna da geçiş yapabiliriz. Bu özellikle uygulama ile servis tarafı arasındaki haberleşmeleri monitör etmek için idealdir. Çalıştığım örnekte CORS ihlallerine takıldığımdan rust uygulamasında buna yönelik bir değişiklik yapmak durumunda kaldım. İşte çalışma zamanına ait birkaç ekran görüntüsü.
+Örnek uygulama PostgreSQL veritabanını kullanmakta; bu servis docker-compose ile izole bir ağda (`tinyboard-net`) çalıştırılmaktadır. Dolayısıyla öncelikle aşağıdaki komutla container'ların ayakta olduğundan emin olmak lazım:
+
+```bash
+docker compose up -d
+```
+
+Bunun haricinde backend taraf servisinin de çalışır olması gerekiyor: Sonrasında eğer geliştirme modunda ilerleyeceksek **npm run dev** komutunu kullanabiliriz. Bu komut ile Electron uygulaması çalıştırılacaktır. Ayrıca localhost:5137 adresinden bu electron uygulamasının tarayıcıda çalışan versiyonuna da geçiş yapabiliriz. Bu özellikle uygulama ile servis tarafı arasındaki haberleşmeleri monitör etmek için idealdir. Çalıştığım örnekte CORS ihlallerine takıldığımdan rust uygulamasında buna yönelik bir değişiklik yapmak durumunda kaldım. İşte çalışma zamanına ait birkaç ekran görüntüsü.
 
 Uygulama ilk açıldığında;
 

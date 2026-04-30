@@ -6,7 +6,7 @@ mod test {
     use dotenv::dotenv;
     use sea_orm::Database;
 
-    #[async_std::test]
+    #[tokio::test]
     async fn should_create_new_work_item_and_then_delete_works() {
         dotenv().ok();
         let repository = WorkItemRepository {
